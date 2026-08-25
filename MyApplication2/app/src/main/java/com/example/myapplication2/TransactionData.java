@@ -15,8 +15,9 @@ public class TransactionData implements Parcelable {
     private String expiryDate;
     private String datetime;
     private String remarks;
+    private String application;
 
-    public TransactionData(int tid, String amount, String cardNo, String cardHolderName, String cvv,  String expiryDate, String datetime,  String remarks) {
+    public TransactionData(int tid, String amount, String cardNo, String cardHolderName, String cvv,  String expiryDate, String datetime,  String remarks, String application) {
         this.tid = tid;
         this.expiryDate = expiryDate;
         this.cvv = cvv;
@@ -25,6 +26,7 @@ public class TransactionData implements Parcelable {
         this.amount = amount;
         this.datetime = datetime;
         this.remarks = remarks;
+        this.application = application;
     }
 
 
@@ -37,6 +39,7 @@ public class TransactionData implements Parcelable {
         expiryDate = in.readString();
         datetime = in.readString();
         remarks = in.readString();
+        application = in.readString();
     }
     public static final Creator<TransactionData> CREATOR = new Creator<TransactionData>() {
         @Override
@@ -86,7 +89,7 @@ public class TransactionData implements Parcelable {
     public String getRemarks() {
         return remarks;
     }
-
+public String getApplication(){ return application;}
 
 
 
@@ -105,5 +108,6 @@ public class TransactionData implements Parcelable {
         dest.writeString(expiryDate);
         dest.writeString(datetime);
         dest.writeString(remarks);
+        dest.writeString(application);
     }
 }

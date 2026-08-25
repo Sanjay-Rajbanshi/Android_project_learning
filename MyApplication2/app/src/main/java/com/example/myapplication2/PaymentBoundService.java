@@ -33,7 +33,8 @@ public class PaymentBoundService extends Service {
                 String cardHolderName,
                 String cvv,
                 String expiryDate,
-                String remarks) {
+                String remarks
+                ) {
 
             PaymentBoundService.this.processPayment(
                     amount,
@@ -41,7 +42,8 @@ public class PaymentBoundService extends Service {
                     cardHolderName,
                     cvv,
                     expiryDate,
-                    remarks
+                    remarks,
+                    "myfirstapplication"
             );
         }
 
@@ -59,7 +61,8 @@ public class PaymentBoundService extends Service {
                         transaction.getCvv(),
                         transaction.getExpiryDate(),
                         transaction.getDatetime(),
-                        transaction.getRemarks()
+                        transaction.getRemarks(),
+                        transaction.getApplication()
 
                 ));
             }
@@ -96,7 +99,7 @@ public class PaymentBoundService extends Service {
     }
 
 
-    public void processPayment(double amount,String cardNo, String cardHolderName,  String cvv, String expiryDate, String remarks) {
+    public void processPayment(double amount,String cardNo, String cardHolderName,  String cvv, String expiryDate, String remarks, String application) {
 
         executorService.execute(() -> {
             Log.d(TAG, "Payment processing");
@@ -137,7 +140,8 @@ public class PaymentBoundService extends Service {
                         cvv,
                         expiryDate,
                         currentDateTime,
-                        remarks
+                        remarks,
+                    "myapplication2"
                 );
 
                 // Save to Room database

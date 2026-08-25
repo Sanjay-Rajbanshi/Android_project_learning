@@ -27,10 +27,11 @@ public class Transaction {
 
     private String datetime;
 
+@ColumnInfo(name= "application")
+public String application;
 
 
-
-    public Transaction(int tid, String amount, String cardNo, String cardHolderName, String cvv, String expiryDate, String datetime, String remarks) {
+    public Transaction(int tid, String amount, String cardNo, String cardHolderName, String cvv, String expiryDate, String datetime, String remarks, String application) {
         this.tid = tid;
         this.amount = amount;
         this.cardNo = cardNo;
@@ -39,6 +40,7 @@ public class Transaction {
         this.expiryDate = expiryDate;
         this.datetime = datetime;
         this.remarks = remarks;
+        this.application = application;
 
 
     }
@@ -107,5 +109,12 @@ public class Transaction {
         this.datetime = datetime;
     }
 
+    public String getApplication() {
+        return application;
+    }
+
+    public void setApplication(String application) {
+        this.application = application;
+    }
 
 }
