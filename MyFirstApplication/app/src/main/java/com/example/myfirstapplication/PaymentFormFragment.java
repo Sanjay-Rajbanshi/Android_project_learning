@@ -18,6 +18,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import android.text.TextWatcher;
+
+import com.example.myapplication2.IPaymentService;
+
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
@@ -25,7 +28,7 @@ import java.util.Locale;
 
 public class PaymentFormFragment extends Fragment {
 
-    private FragmentPaymentBinding binding;
+
 
     private EditText edtAmount, edtCardNo, edtCardHolderName, edtCvv, edtExpiryDate, edtRemarks;
 
@@ -63,7 +66,8 @@ public class PaymentFormFragment extends Fragment {
         super.onStart();
 
 //        bind the service
-        Intent intent = new Intent(requireContext(), PaymentBoundService.class);
+        Intent intent = new Intent("com.example.myapplication2.IPaymentService");
+        intent.setPackage("com.example.myapplication2");
         boolean result =  requireContext().bindService(intent,
                 serviceConnection,
                 Context.BIND_AUTO_CREATE);
@@ -83,18 +87,19 @@ public class PaymentFormFragment extends Fragment {
 
     }
 
-
-
     @Override
     public View onCreateView(
-            @NonNull LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState
-    ) {
+            @NonNull LayoutInflater inflater,
+            ViewGroup container,
+            Bundle savedInstanceState) {
 
-        binding = FragmentPaymentBinding.inflate(inflater, container, false);
-        return binding.getRoot();
-
+        return inflater.inflate(
+                R.layout.fragment_payment_form,
+                container,
+                false
+        );
     }
+
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

@@ -3,9 +3,7 @@ package com.example.myfirstapplication;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.myapplication2.TransactionData;
 
 public class TransactionDetailedActivity extends AppCompatActivity {
@@ -18,6 +16,8 @@ public class TransactionDetailedActivity extends AppCompatActivity {
     private TextView transactionCvv;
     private TextView transactionExpiryDate;
     private TextView transactionRemarks;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -132,6 +132,24 @@
 
         />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Remarks"
+        android:textSize="20sp"
+
+        />
+
+    <EditText
+        android:id="@+id/etRemarks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+
+
+
+        />
+
 
 
     <Button
