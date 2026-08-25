@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <!-- HOME -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.myapplication2.HomeFragment"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_homeFragment_to_paymentFormFragment"
+            app:destination="@id/paymentFormFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_transactionHistoryFragment"
+            app:destination="@id/transactionHistoryFragment" />
+
+    </fragment>
+
+
+    <!-- PAYMENT FORM -->
+    <fragment
+        android:id="@+id/paymentFormFragment"
+        android:name="com.example.myapplication2.PaymentFormFragment"
+        android:label="New Payment"
+        tools:layout="@layout/fragment_payment">
+
+        <action
+            android:id="@+id/action_paymentFormFragment_to_transactionHistoryFragment"
+            app:destination="@id/transactionHistoryFragment" />
+
+    </fragment>
+
+
+    <!-- TRANSACTION HISTORY -->
+    <fragment
+        android:id="@+id/transactionHistoryFragment"
+        android:name="com.example.myapplication2.TransactionHistoryFragment"
+        android:label="Transaction History"
+        tools:layout="@layout/fragment_transaction_history">
+
+        <action
+            android:id="@+id/action_transactionHistoryFragment_to_paymentFormFragment"
+            app:destination="@id/paymentFormFragment" />
+
+    </fragment>
+
+
+    <!-- MAIN ACTIVITY -->
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.myapplication2.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+
+</navigation>
